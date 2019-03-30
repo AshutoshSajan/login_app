@@ -7,11 +7,14 @@ export default class Users extends React.Component {
   }
 
   render() {
+    console.log(this.props, "Users.js")
     return (
-      <div className="App">
-      	<Header state={this.state}/>
-        <img src="" alt="User_avatar" />
-        <p>{""}</p>
+      <div >
+      	<Header handleReset={this.props.handleReset} state={this.state}/>
+        <figure className="user-info">
+          <img src="" alt="user_avatar"/>
+          <figcaption>{""}</figcaption>
+        </figure>
       </div>
     );
   }

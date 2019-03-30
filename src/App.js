@@ -5,20 +5,23 @@ import Login from "./Login";
 
 export default class App extends Component {
   state = {
-    user:null
+    user: null
   }
+
   update = (user) => {
-    if(user !==true){
-      this.setState({user})
-    }else return;
+    console.log(user, "update");
+    this.setState({user})
+  }
+
+  handleReset = () => {
+    this.setState({user: null})
   }
 
   render() {
-    console.log(this.state, "app.js")
     return (
       <div className="App">
         {
-          this.state.user ? <Users state={this.state}/> : <Login user={this.update}/>
+          this.state.user ? <Users handleReset={this.handleReset} state={this.state}/> : <Login update={this.update}/>
         }
       </div>
     );
